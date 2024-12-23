@@ -1,4 +1,3 @@
-
 import { PortableTextBlock } from "@sanity/types";
 
 export interface simpleBlogCard {

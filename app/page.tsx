@@ -1,4 +1,3 @@
-
 import { Card , CardContent } from "@/components/ui/card";
 import { simpleBlogCard } from "./lib/interface";
 import { client , urlFor } from "./lib/sanity";
