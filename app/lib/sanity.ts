@@ -17,3 +17,4 @@ const builder = imageUrlBuilder(client);
 export function urlFor(source: object) {
   return builder.image(source);
 }
+

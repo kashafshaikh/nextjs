@@ -1,4 +1,3 @@
-
 "use client";
 
 import { fullBlog } from "@/app/lib/interface";
@@ -80,12 +79,12 @@ export default function BlogArticle({ params }: { params: { slug: string } }) {
       </h1>
 
       <Image
-        src={urlFor(data.titleImage).url()}
-        width={800}
-        height={800}
-        alt="Title Image"
-        priority
-        className="rounded-lg mt-8 border"
+         src={urlFor(data.titleImage).url()}  
+         width={800}
+         height={800}
+         alt="Title Image"
+         priority
+         className="rounded-lg mt-8 border"
       />
 
       <div className="mt-16 prose prose-blue prose-lg dark:prose-invert">
