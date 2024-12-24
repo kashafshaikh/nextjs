@@ -147,7 +147,30 @@ import { urlFor } from "@/app/lib/sanity";
 import { PortableText } from "next-sanity";
 import { createClient } from "next-sanity";
 import Image from "next/image";
+import { PortableTextBlock } from '@portabletext/types';
 
+
+interface BlogArticleType {
+  _id: string;
+  currentSlug: string;
+  title: string;
+  content: PortableTextBlock[]; // Use PortableTextBlock for content
+  titleImage: {
+    asset: {
+      _ref: string; // Reference to the image asset
+      _type: string; // Type of the asset
+    };
+  };
+}
+type Comment = {
+  _id: string;
+  username: string;
+  text: string;
+  blog: {
+    _type: string;
+    _ref: string; // Ensure this is a string
+  };
+};
 
 interface BlogArticleParams {
   slug: string;
@@ -165,7 +188,7 @@ const client = createClient({
   });
 
 // Fetch comments from Sanity
-const fetchComments = async (slug: string) => {
+const fetchComments = async (slug: string): Promise<Comment[]> => {
   const query = `*[_type == "comment" && blog->slug.current == '${slug}']{
     _id,
     username,
@@ -180,7 +203,7 @@ const fetchComments = async (slug: string) => {
 };
 
 // Fetch blog data from Sanity
-const getData = async (slug: string) => {
+const getData = async (slug: string): Promise<BlogArticleType | null> => {
   const query = `*[_type == "blog" && slug.current == '${slug}']{
     _id,
     "currentSlug": slug.current,
@@ -189,13 +212,13 @@ const getData = async (slug: string) => {
     titleImage
   }[0]`;
 
-  const data = await client.fetch(query);
+  const data : BlogArticleType | null = await client.fetch(query);
   return data;
 };
 
 export default function BlogArticle({ params }: BlogArticleProps) {
-  const [data, setData] = useState<any>(null);
-  const [comments, setComments] = useState<any[]>([]);
+  const [data, setData] =  useState<BlogArticleType | null>(null);
+  const [comments, setComments] = useState<Comment[]>([]);
   const [newComment, setNewComment] = useState<string>("");
   const [username, setUsername] = useState<string>("");
 
@@ -237,7 +260,7 @@ export default function BlogArticle({ params }: BlogArticleProps) {
     };
 
     try {
-      const createdComment = await client.create(newCommentData);
+      const createdComment = await client.create(newCommentData) as Comment;
       setComments((prevComments) => [...prevComments, createdComment]);
       setNewComment("");
       setUsername("");
