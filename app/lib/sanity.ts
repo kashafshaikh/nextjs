@@ -7,6 +7,7 @@ export const client = createClient({
   dataset: "production",
   projectId: "zatwz31j",
   useCdn: false,
+  withCredentials: true
 });
 
 // Image URL builder
