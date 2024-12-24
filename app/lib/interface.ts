@@ -13,3 +13,11 @@ export interface fullBlog {
   content: Array<PortableTextBlock>;
   titleImage: object
 }
+
+export interface Comment {
+  _id: string;
+  username: string;
+  text: string;
+}
+
+
