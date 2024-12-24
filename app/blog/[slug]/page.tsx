@@ -185,6 +185,7 @@ const client = createClient({
     dataset: "production",  // or your custom dataset
     useCdn: false, // Disable CDN for write operations
     token: "sk5AcqqBD3YD0y7JceXxKxRJgUm7TBvd6NFUJbcfQgmwS7W10Y1HUpferUfNQoAtdEJ8dHdv4Pp65tX9trcBnKv433oALDDSPRHraMoxUGjJIFaT9P4HBdCtNiLgnUPPbWFCqvohkhwE9A8DSsQvUObttQ3ZJ4vgMQDBymmnwx6QRhX5O9l0", // Replace with your generated API token
+    withCredentials: true,
   });
 
 // Fetch comments from Sanity
