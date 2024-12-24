@@ -293,6 +293,7 @@ export default function BlogArticle({ params }: BlogArticleProps) {
         alt="Title Image"
         priority
         className="rounded-lg mt-8 border"
+        loading="lazy" 
       />
 
       <div className="mt-16 prose prose-blue prose-lg dark:prose-invert">
