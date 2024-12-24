@@ -12,6 +12,6 @@ import { apiVersion, dataset, projectId } from '../env'
 export const client = createClient({
   projectId: "zatwz31j",  // Replace with your Sanity project ID
   dataset: "production",         // Your dataset name
-  apiVersion: "2023-05-03",      // Specify the API version you're using
+  apiVersion: "2024-12-01 ",      // Specify the API version you're using
   useCdn: true,                  // Use CDN for faster responses (true/false)
 });

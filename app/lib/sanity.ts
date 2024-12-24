@@ -3,7 +3,7 @@ import imageUrlBuilder from "@sanity/image-url";
 
 // Sanity client setup
 export const client = createClient({
-  apiVersion: "2023-05-03",
+  apiVersion: "2024-12-01 ",
   dataset: "production",
   projectId: "zatwz31j",
   useCdn: true,
@@ -23,4 +23,4 @@ export { createClient };
 
 
 
-//     2024-12-01
+//       2023-05-03
