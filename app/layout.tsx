@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "./components/navbar";
 import { ThemeProvider } from "./components/theme-provider";
+import Footer from "./components/footer";
 
 
 const geistSans = localFont({
@@ -39,7 +40,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <main className="max-w-2xl mx-auto px-4">{children}</main>
+          <main className="max-w-2xl mx-auto px-4">{children}
+          </main>
+          <Footer/>
         </ThemeProvider>
       </body>
     </html>
